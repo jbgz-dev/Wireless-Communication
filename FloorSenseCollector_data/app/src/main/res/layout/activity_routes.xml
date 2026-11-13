@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <LinearLayout style="@style/Row">
+            <TextView style="@style/Label" android:text="楼层" />
+            <Spinner android:id="@+id/spFloor" style="@style/Field" />
+            <Button android:id="@+id/btnAddFloor" style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="+ 楼层" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Row">
+            <TextView style="@style/Label" android:text="路线编号" />
+            <Spinner android:id="@+id/spRoute" style="@style/Field" />
+            <Button android:id="@+id/btnAddRoute" style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="+ 路线" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvRouteInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textSize="13sp" />
+
+        <LinearLayout style="@style/Row">
+            <CheckBox android:id="@+id/cbAll"
+                android:layout_width="40dp" android:layout_height="wrap_content" />
+            <TextView android:layout_width="40dp" android:layout_height="wrap_content"
+                android:text="顺序" android:textStyle="bold" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="节点" android:textStyle="bold" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="x, y（m，选填）" android:textStyle="bold" />
+            <View android:layout_width="88dp" android:layout_height="1dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/listNodes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <LinearLayout style="@style/Row" android:paddingTop="8dp">
+            <TextView style="@style/Label" android:text="新节点编号" />
+            <EditText android:id="@+id/etNodeId" style="@style/Field"
+                android:hint="如 D" android:inputType="textCapCharacters" />
+        </LinearLayout>
+
+        <Button android:id="@+id/btnAddNode"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="+ 添加节点" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/btnDeleteSelected" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:text="删除选中节点" />
+
+            <Button android:id="@+id/btnCopy" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:text="复制节点映射" />
+        </LinearLayout>
+
+        <Button android:id="@+id/btnDeleteRoute"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="删除这条路线" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:textSize="12sp"
+            android:text="节点按添加顺序排列，就是正向行走时经过的顺序，用 ↑ 调整。点节点行可以修改编号，或补填坐标 x、y（米，可留空）。路线编号和“行走”模式填的一致（如 TW01）。" />
+    </LinearLayout>
+</ScrollView>

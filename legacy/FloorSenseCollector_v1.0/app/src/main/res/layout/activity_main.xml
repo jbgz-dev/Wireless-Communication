@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tvEnv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:id="@+id/form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/Label" android:text="采集人代号" />
+                <EditText android:id="@+id/etCollector" style="@style/Field"
+                    android:hint="如 P1（不要写真名）" android:inputType="text" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/Label" android:text="楼名" />
+                <EditText android:id="@+id/etBuilding" style="@style/Field"
+                    android:hint="如 T2" android:inputType="textCapCharacters" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/Label" android:text="楼层" />
+                <EditText android:id="@+id/etFloor" style="@style/Field"
+                    android:hint="当前所在楼层，如 3" android:inputType="numberSigned" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/Label" android:text="区域" />
+                <EditText android:id="@+id/etZone" style="@style/Field"
+                    android:hint="如 corridor / 301 / lobby（可空）" android:inputType="text" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/Label" android:text="模式" />
+                <Spinner android:id="@+id/spMode" style="@style/Field" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/Label" android:text="数据集" />
+                <Spinner android:id="@+id/spSplit" style="@style/Field" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/Label" android:text="持机方式" />
+                <Spinner android:id="@+id/spPosture" style="@style/Field" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/groupPoint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout style="@style/Row">
+                    <TextView android:id="@+id/tvPointLabel" style="@style/Label" android:text="点位编号" />
+                    <EditText android:id="@+id/etPoint" style="@style/Field"
+                        android:hint="训练 T01… / 测试 X01…" android:inputType="textCapCharacters" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/rowOrientation" style="@style/Row">
+                    <TextView style="@style/Label" android:text="朝向" />
+                    <Spinner android:id="@+id/spOrientation" style="@style/Field" />
+                </LinearLayout>
+
+                <CheckBox android:id="@+id/cbCycle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="完成后自动切换朝向（N→E→S→W）" />
+
+                <CheckBox android:id="@+id/cbAutoInc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="自动递增点位编号（默认关闭；开启后，静态模式在 W 采完后才加 1）" />
+
+                <LinearLayout android:id="@+id/rowTarget" style="@style/Row">
+                    <TextView style="@style/Label" android:text="目标扫描数" />
+                    <EditText android:id="@+id/etTarget" style="@style/Field"
+                        android:hint="新 Wi-Fi 扫描次数" android:inputType="number" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/groupTransition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout style="@style/Row">
+                    <TextView style="@style/Label" android:text="目标楼层" />
+                    <EditText android:id="@+id/etToFloor" style="@style/Field"
+                        android:inputType="numberSigned" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/Row">
+                    <TextView style="@style/Label" android:text="方式" />
+                    <Spinner android:id="@+id/spMethod" style="@style/Field" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/Label" android:text="备注" />
+                <EditText android:id="@+id/etNotes" style="@style/Field"
+                    android:hint="可空，如：门开着 / 人多" android:inputType="text" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvNext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#1565C0"
+            android:padding="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCompass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="6dp"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="8dp">
+
+            <Button android:id="@+id/btnStart" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:text="开始采集" />
+
+            <Button android:id="@+id/btnStop" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:text="停止" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/groupMarks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/btnMoveStart" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:text="开始移动" />
+
+            <Button android:id="@+id/btnFloorPassed" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:text="经过一层" />
+
+            <Button android:id="@+id/btnArrived" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:text="到达目标层" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvLive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:paddingTop="8dp"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="8dp">
+
+            <Button android:id="@+id/btnDiscard" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:text="删除上一条" />
+
+            <Button android:id="@+id/btnEdit" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:text="修改记录" />
+
+            <Button android:id="@+id/btnExport" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:text="导出全部" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:textSize="13sp" />
+    </LinearLayout>
+</ScrollView>

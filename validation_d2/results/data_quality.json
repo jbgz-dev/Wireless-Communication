@@ -1,0 +1,12 @@
+{
+  "sessions": 60,
+  "raw_scans": 303,
+  "excluded_not_fresh": 2,
+  "fresh_scans": 301,
+  "dedup_scans": 89,
+  "points": 15,
+  "va_fp_equal_to_train": 0,
+  "dates": [
+    "2026-11-10"
+  ]
+}
