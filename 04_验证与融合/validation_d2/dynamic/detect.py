@@ -12,7 +12,8 @@ from dynlib import signals
 HZ = 25
 PULSE_A = 0.25      # m/s^2, smoothed vertical accel during elevator start/stop
 PULSE_MIN_S = 0.6
-HAND_STD_MAX = 0.35  # 1-s std of raw vertical accel; walking is ~1.0, elevator ~0.1
+HAND_STD_MAX = 1.0   # 1-s std of raw vertical accel during start/stop pulses. 11-19: was 0.35 (fit to P2,
+                     # 0.10-0.32); P1 is 0.38-0.66 and lost 5 rides. At 1.5 stairs start to look like elevators.
 FLOOR_H = None       # metres per floor, calibrated in calibrate()
 
 def _runs(mask):
@@ -70,8 +71,8 @@ def walking_bouts(sig, steps, raw_std, min_s=6):
 # Rotation about the vertical axis (gyro projected on the gravity direction, + = counter-clockwise seen
 # from above) is the same for every person and phone, unlike the vertical-acceleration std.
 # On both T8 staircases (Train: central, Validation: east) going up turns counter-clockwise, going down clockwise.
-TURN_RATE = 30.0     # deg/s, 1-s smoothed yaw rate that counts as turning
-TURN_MIN = 90.0      # deg, one landing turn
+TURN_RATE = 15.0     # deg/s, 1-s smoothed yaw rate that counts as turning (11-19: was 30)
+TURN_MIN = 60.0      # deg, one landing turn (11-19: was 90; a 1116 4->3 landing was 86, hallway max 37)
 STAIRS_NET_MIN = 150.0   # deg, net turn over the bout; Train stairs 200-334, hallway walks |net| <= 174
 STAIRS_GYRO_MAX_S = 60   # s; Train/Val hallway bouts are 66-77 s
 

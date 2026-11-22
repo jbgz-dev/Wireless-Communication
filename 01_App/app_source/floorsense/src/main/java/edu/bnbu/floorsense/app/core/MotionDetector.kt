@@ -208,14 +208,17 @@ class MotionDetector(private val useGyro: Boolean = true) {
         const val STEP_MS = 1000.0 / HZ
         const val PULSE_A = 0.25
         const val PULSE_MIN_S = 0.6
-        const val HAND_STD_MAX = 0.35
+        // 11-19：0.35 → 1.0。0.35 是按 P2 定的（起停脉冲 0.10–0.32），P1 的是 0.38–0.66，5 次电梯全漏；
+        // 1.5 时开始把楼梯当成电梯。见 动态检测/sweep.py
+        const val HAND_STD_MAX = 1.0
         const val MAX_RIDE_GAP_S = 60.0
         const val FLOOR_H = 4.0
         const val STAIRS_DOWN_STD = 1.45
         const val STAIRS_MIN_S = 5.0
         const val STAIRS_MAX_S = 30.0
-        const val TURN_RATE = 30.0
-        const val TURN_MIN = 90.0
+        // 11-19：30°/s、90° → 15°/s、60°。1116 的 4→3 平台转身只有 86°；走廊行走最大单次转身 37°
+        const val TURN_RATE = 15.0
+        const val TURN_MIN = 60.0
         const val STAIRS_NET_MIN = 150.0
         const val STAIRS_GYRO_MAX_S = 60.0
         const val MIN_BOUT_S = 6.0
